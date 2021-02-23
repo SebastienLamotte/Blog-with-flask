@@ -10,10 +10,11 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 import os
-from dotenv import load_dotenv
 
 env_path = os.path.join(os.getcwd(), '.env')
-load_dotenv(env_path)
+if os.path.exists(env_path):
+    from dotenv import load_dotenv
+    load_dotenv(env_path)
 
 PORT = os.environ.get('PORT')
 
