@@ -16,7 +16,7 @@ env_path = os.path.join(os.getcwd(), '.env')
 load_dotenv(env_path)
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
