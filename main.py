@@ -181,7 +181,7 @@ def contact():
 def add_new_post():
     form = CreatePostForm()
     if form.validate_on_submit():
-        if BlogPost.query.filter_by(title=form.title.data):
+        if BlogPost.query.filter_by(title=form.title.data).first():
             flash('A post with this title already exists.')
         else:
             new_post = BlogPost(
